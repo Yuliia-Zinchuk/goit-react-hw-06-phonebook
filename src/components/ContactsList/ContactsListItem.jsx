@@ -11,7 +11,6 @@ export const ContactsListItem = ({ name, number, onDeleteContact }) => (
     </button>
   </>
 );
-
 ContactsListItem.propTypes = {
   onDeleteContact: PropTypes.func.isRequired,
 

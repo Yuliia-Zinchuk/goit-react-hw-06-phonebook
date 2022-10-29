@@ -9,9 +9,7 @@ const filterSlice = createSlice({
   initialState,
   reducers: {
     onFilter: (state, { payload }) => {
-      if ((state.filter = payload)) state.filter = payload;
-      // state.state = state.state.includes(payload);
-      //   state.filter = state.toLowerCase().includes(payload.toLowerCase());
+      state.filter = payload;
     },
   },
 });

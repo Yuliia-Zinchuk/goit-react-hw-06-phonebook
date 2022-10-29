@@ -1,15 +1,10 @@
 import PropTypes from 'prop-types';
-import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import css from './ContactsForm.module.css';
-//import { addContact } from 'redux/contacts/contactsSlice';
-//import { useDispatch } from 'react-redux';
 
 export const ContactsForm = ({ onSubmit }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-
-  // const dispath = useDispatch();
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -28,8 +23,6 @@ export const ContactsForm = ({ onSubmit }) => {
   const handleSubmit = e => {
     e.preventDefault();
     onSubmit({ name, number });
-    // const newContact = { id: nanoid(), name, number };
-    // dispath(addContact(newContact));
     reset();
   };
 
