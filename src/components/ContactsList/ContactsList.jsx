@@ -1,7 +1,14 @@
 import PropTypes from 'prop-types';
 import { ContactsListItem } from './ContactsListItem';
 import css from './ContactsList.module.css';
-export const ContactsList = ({ contacts, filter, onDeleteContact }) => {
+import { useSelector } from 'react-redux';
+import { selectContacts } from 'redux/contacts/contactsSelectors';
+import { selectFilter } from 'redux/filter/filterSelectors';
+
+export const ContactsList = ({ onDeleteContact }) => {
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
+  console.log(filter);
   return (
     <>
       {/* <div className={css.contacts_wraper}> */}
@@ -28,14 +35,14 @@ export const ContactsList = ({ contacts, filter, onDeleteContact }) => {
 };
 
 ContactsList.propTypes = {
-  filter: PropTypes.string.isRequired,
+  //  filter: PropTypes.string.isRequired,
   onDeleteContact: PropTypes.func.isRequired,
 
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
+      id: PropTypes.string,
+      name: PropTypes.string,
+      number: PropTypes.string,
     }).isRequired
   ),
 };
